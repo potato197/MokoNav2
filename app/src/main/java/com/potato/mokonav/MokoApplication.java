@@ -36,13 +36,14 @@ public class MokoApplication
   public static String[] channelsURL;
   private static MokoApplication instance;
   public static String login = "http://www.moko.cc/jsps/common/login.action?usermingzi=lightingmoon@sina.com&userkey=qq1234&tourl=";
-  static String month = "2015/1";
+//  static String month = "2015/1";
   private RequestCache mRequestCache;
   
   static
   {
     String[] arrayOfString = new String[10];
-    arrayOfString[0] = ("http://www.moko.cc/" + month + "/1/postMonthList.html");
+//    arrayOfString[0] = ("http://www.moko.cc/" + month + "/1/postMonthList.html");
+    arrayOfString[0] = ("http://www.moko.cc/moko/post/1.html");
     arrayOfString[1] = "http://www.moko.cc/channels/Post/28/1.html";
     arrayOfString[2] = "http://www.moko.cc/channels/Post/23/1.html";
     arrayOfString[3] = "http://www.moko.cc/channels/Post/41/1.html";
