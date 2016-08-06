@@ -78,8 +78,8 @@ public class ChannelActivity
         this.spinnerAdapter.setDropDownViewResource(android.R.layout.simple_expandable_list_item_1);
         this.spinner.setAdapter(this.spinnerAdapter);
         this.spinner.setSelection(this.id);
-        new NewsTask().execute(new Void[] { null });
-        this.pageTextView.setText(this.page + "/10");
+       // new NewsTask().execute(new Void[] { null });
+        this.pageTextView.setText(this.page + "/20");
         this.preButton.setOnClickListener(new View.OnClickListener()
         {
           public void onClick(View paramAnonymousView)
@@ -92,14 +92,14 @@ public class ChannelActivity
             ChannelActivity localChannelActivity = ChannelActivity.this;
             localChannelActivity.page = (-1 + localChannelActivity.page);
             new ChannelActivity.NewsTask().execute(new Void[] { null });
-            ChannelActivity.this.pageTextView.setText(ChannelActivity.this.page + "/10");
+            ChannelActivity.this.pageTextView.setText(ChannelActivity.this.page + "/20");
           }
         });
         this.nextButton.setOnClickListener(new View.OnClickListener()
         {
           public void onClick(View paramAnonymousView)
           {
-            if (ChannelActivity.this.page == 10)
+            if (ChannelActivity.this.page == 20)
             {
               Toast.makeText(ChannelActivity.this, ChannelActivity.this.getString(R.string.lastpage), 1).show();
               return;
@@ -107,7 +107,7 @@ public class ChannelActivity
             ChannelActivity localChannelActivity = ChannelActivity.this;
             localChannelActivity.page = (1 + localChannelActivity.page);
             new ChannelActivity.NewsTask().execute(new Void[] { null });
-            ChannelActivity.this.pageTextView.setText(ChannelActivity.this.page + "/10");
+            ChannelActivity.this.pageTextView.setText(ChannelActivity.this.page + "/20");
           }
         });
         this.spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
@@ -117,7 +117,7 @@ public class ChannelActivity
             ChannelActivity.this.id = paramAnonymousInt;
             ChannelActivity.this.relativeLayout.setBackgroundColor(MokoApplication.channelsColor[ChannelActivity.this.id]);
             ChannelActivity.this.page = 1;
-            ChannelActivity.this.pageTextView.setText(ChannelActivity.this.page + "/10");
+            ChannelActivity.this.pageTextView.setText(ChannelActivity.this.page + "/20");
             new ChannelActivity.NewsTask().execute(new Void[] { null });
           }
           
@@ -151,7 +151,13 @@ public class ChannelActivity
       ChannelActivity.this.albums = null;
       try
       {
-        ChannelActivity.this.albums = localMokoGet2Api.getClassAblums(MokoApplication.channelsURL[ChannelActivity.this.id], ChannelActivity.this.page, "small");
+        if (ChannelActivity.this.id == 0)
+        {
+          ChannelActivity.this.albums = localMokoGet2Api.getClassAblums(MokoApplication.channelsURL[0], ChannelActivity.this.page, "big");
+        }
+        else {
+          ChannelActivity.this.albums = localMokoGet2Api.getClassAblums(MokoApplication.channelsURL[ChannelActivity.this.id], ChannelActivity.this.page, "small");
+        }
         return ChannelActivity.this.albums;
       }
       catch (WSError localWSError)
