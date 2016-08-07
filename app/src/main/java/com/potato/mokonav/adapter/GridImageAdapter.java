@@ -55,7 +55,7 @@ public class GridImageAdapter
     }
     else
     {
-      Log.d(MokoApplication.TAG, "==========" + paramInt + ", paramView==null?? " + (paramView == null) );
+//      Log.d(MokoApplication.TAG, "==========" + paramInt + ", paramView==null?? " + (paramView == null) );
       localWebImageView = ((ViewHolder)paramView.getTag()).webImageView;
 /*      String imageUrl= localWebImageView.getImageUrl();
       String coverUrl = this.albums.get(paramInt).getCover();
