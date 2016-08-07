@@ -54,14 +54,14 @@ public class GalleryImageAdapter
       ViewHolder localViewHolder = new ViewHolder();
       localViewHolder.webImageView = localWebImageView;
       paramView.setTag(localViewHolder);
+      localWebImageView.reset();
+      localWebImageView.setNoImageDrawable(R.drawable.logo);
     }
     else
     {
       localWebImageView = ((ViewHolder)paramView.getTag()).webImageView;
     }
 
-    localWebImageView.reset();
-    localWebImageView.setNoImageDrawable(R.drawable.logo);
     localWebImageView.setImageUrl(this.imageUrls.get(paramInt));
     localWebImageView.loadImage();
     onGetView(paramInt, paramView, paramViewGroup);
