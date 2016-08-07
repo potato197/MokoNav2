@@ -74,8 +74,8 @@ public class ChannelActivity
     {
       if (i >= MokoApplication.channelsTitle.length)
       {
-        this.spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, this.spinnerData);
-        this.spinnerAdapter.setDropDownViewResource(android.R.layout.simple_expandable_list_item_1);
+        this.spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_activated_1, this.spinnerData);
+        this.spinnerAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         this.spinner.setAdapter(this.spinnerAdapter);
         this.spinner.setSelection(this.id);
        // new NewsTask().execute(new Void[] { null });

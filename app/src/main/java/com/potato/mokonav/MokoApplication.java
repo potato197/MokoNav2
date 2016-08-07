@@ -22,16 +22,17 @@ public class MokoApplication
   extends Application
 {
   public static String TAG = "mokocc";
-  public static int[] channelsColor = { -11776948, -16724737, -65382, -6697983, -78586, -14859163, -10144922, -3407872, -39424, -3684409 };
+  public static int[] channelsColor = { -11776948, -16724737, -65382, -78586, -6697983, -9223788,   -39424,-3407872,-10144922,  -14859163,   -3684409 };
   public static int[] channelsTitle = { R.string.chosen,
           R.string.photographer,
           R.string.models,
+          R.string.makeup,
+          R.string.ebusiness,
+          R.string.video,
           R.string.design,
-          R.string.actor,
-          R.string.music,
-          R.string.movie,
-          R.string.advertising,
+          R.string.wedding,
           R.string.arts,
+          R.string.cosplay,
           R.string.more };
   public static String[] channelsURL;
   private static MokoApplication instance;
@@ -41,18 +42,19 @@ public class MokoApplication
   
   static
   {
-    String[] arrayOfString = new String[10];
+    String[] arrayOfString = new String[11];
 //    arrayOfString[0] = ("http://www.moko.cc/" + month + "/1/postMonthList.html");
     arrayOfString[0] = ("http://www.moko.cc/moko/post/1.html");
     arrayOfString[1] = "http://www.moko.cc/channels/Post/28/1.html";
     arrayOfString[2] = "http://www.moko.cc/channels/Post/23/1.html";
-    arrayOfString[3] = "http://www.moko.cc/channels/Post/41/1.html";
-    arrayOfString[4] = "http://www.moko.cc/channels/Post/143/1.html";
-    arrayOfString[5] = "http://www.moko.cc/channels/Post/13/1.html";
-    arrayOfString[6] = "http://www.moko.cc/channels/Post/1/1.html";
-    arrayOfString[7] = "http://www.moko.cc/channels/Post/53/1.html";
-    arrayOfString[8] = "http://www.moko.cc/channels/Post/71/1.html";
-    arrayOfString[9] = "http://www.moko.cc/channels/Post/94/1.html";
+    arrayOfString[3] = "http://www.moko.cc/channels/Post/151/1.html";
+    arrayOfString[4] = "http://www.moko.cc/channels/Post/152/1.html";
+    arrayOfString[5] = "http://www.moko.cc/channels/Post/154/1.html";
+    arrayOfString[6] = "http://www.moko.cc/channels/Post/41/1.html";
+    arrayOfString[7] = "http://www.moko.cc/channels/Post/153/1.html";
+    arrayOfString[8] = "http://www.moko.cc/channels/Post/150/1.html";
+    arrayOfString[9] = "http://www.moko.cc/channels/Post/148/1.html";
+    arrayOfString[10] = "http://www.moko.cc/channels/Post/94/1.html";
     channelsURL = arrayOfString;
   }
   
