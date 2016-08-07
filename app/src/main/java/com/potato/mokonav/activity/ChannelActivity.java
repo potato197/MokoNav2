@@ -74,7 +74,7 @@ public class ChannelActivity
     {
       if (i >= MokoApplication.channelsTitle.length)
       {
-        this.spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_activated_1, this.spinnerData);
+        this.spinnerAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, this.spinnerData);
         this.spinnerAdapter.setDropDownViewResource(android.R.layout.simple_list_item_single_choice);
         this.spinner.setAdapter(this.spinnerAdapter);
         this.spinner.setSelection(this.id);

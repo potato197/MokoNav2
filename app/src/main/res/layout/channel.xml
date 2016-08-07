@@ -4,7 +4,7 @@
     <Spinner android:id="@+id/spinner" android:layout_width="fill_parent" android:layout_height="wrap_content"
         android:spinnerMode="dropdown"
         style="@android:style/Widget.Spinner" />
-    <ViewFlipper android:orientation="vertical" android:id="@+id/channelViewFlipper" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/spinner">
+    <ViewFlipper android:orientation="vertical" android:id="@+id/channelViewFlipper" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_below="@id/spinner" android:layout_above="@+id/child_layout">
         <LinearLayout android:gravity="center" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
             <com.potato.mokonav.component.ProgressBar android:id="@+id/channelProgressBar" android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:orientation="vertical" />
