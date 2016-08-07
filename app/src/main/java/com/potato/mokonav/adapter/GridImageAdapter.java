@@ -45,7 +45,7 @@ public class GridImageAdapter
     if (paramView == null)
     {
       localWebImageView = new WebImageView(this.context, null, false);
-      localWebImageView.setLayoutParams(new AbsListView.LayoutParams(150, 160));
+      localWebImageView.setLayoutParams(new AbsListView.LayoutParams(240, 240));
       paramView = localWebImageView;
       ViewHolder localViewHolder = new ViewHolder();
       localViewHolder.webImageView = localWebImageView;
