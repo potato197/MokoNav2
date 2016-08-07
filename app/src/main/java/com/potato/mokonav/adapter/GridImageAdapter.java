@@ -1,12 +1,14 @@
 package com.potato.mokonav.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AbsListView.LayoutParams;
 import android.widget.BaseAdapter;
 import com.github.droidfu.widgets.WebImageView;
+import com.potato.mokonav.MokoApplication;
 import com.potato.mokonav.R;
 import com.potato.mokonav.api.Album;
 import java.util.ArrayList;
@@ -48,13 +50,23 @@ public class GridImageAdapter
       ViewHolder localViewHolder = new ViewHolder();
       localViewHolder.webImageView = localWebImageView;
       paramView.setTag(localViewHolder);
+      localWebImageView.reset();
+      localWebImageView.setNoImageDrawable(R.drawable.logo);
     }
     else
     {
+      Log.d(MokoApplication.TAG, "==========" + paramInt + ", paramView==null?? " + (paramView == null) );
       localWebImageView = ((ViewHolder)paramView.getTag()).webImageView;
+/*      String imageUrl= localWebImageView.getImageUrl();
+      String coverUrl = this.albums.get(paramInt).getCover();
+      Boolean UrlMatchCover=imageUrl.equals(coverUrl);
+      Log.d(MokoApplication.TAG, "paramView==null, ImageMatchCover= " + UrlMatchCover);
+      if(UrlMatchCover!=true) {
+        Log.d(MokoApplication.TAG, "imageUrl= " + imageUrl);
+        Log.d(MokoApplication.TAG, "coverUrl= " + coverUrl);
+      }*/
     }
-      localWebImageView.reset();
-      localWebImageView.setNoImageDrawable(R.drawable.logo);
+
       localWebImageView.setImageUrl(this.albums.get(paramInt).getCover());
       localWebImageView.loadImage();
       onGetView(paramInt, paramView, paramViewGroup);

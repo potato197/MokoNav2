@@ -202,6 +202,7 @@ public class ImageLoader implements Runnable {
             String oldImageUrl = (String) imageView.getTag();
             if (imageUrl.equals(oldImageUrl)) {
                 // nothing to do
+                Log.w(LOG_TAG, "ImageLoader.start nothing to do");
                 return;
             } else {
                 // Set the dummy image while waiting for the actual image to be downloaded.
