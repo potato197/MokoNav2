@@ -5,7 +5,7 @@ android {
         potato {
             keyAlias 'potato-key1'
             keyPassword 'win2012'
-            storeFile file('E:/android/Key/potato-key1')
+            storeFile file('E:/android/Key/potato-key1.jks')
             storePassword 'win2012'
         }
     }
@@ -24,6 +24,10 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.potato
+        }
+        debug {
+            signingConfig signingConfigs.potato
         }
     }
     productFlavors {
