@@ -86,7 +86,7 @@ public class ChannelActivity
           {
             if (ChannelActivity.this.page == 1)
             {
-              Toast.makeText(ChannelActivity.this, ChannelActivity.this.getString(R.string.firstpage), 1).show();
+              Toast.makeText(ChannelActivity.this, ChannelActivity.this.getString(R.string.firstpage), Toast.LENGTH_SHORT).show();
               return;
             }
             ChannelActivity localChannelActivity = ChannelActivity.this;
@@ -101,7 +101,7 @@ public class ChannelActivity
           {
             if (ChannelActivity.this.page == 20)
             {
-              Toast.makeText(ChannelActivity.this, ChannelActivity.this.getString(R.string.lastpage), 1).show();
+              Toast.makeText(ChannelActivity.this, ChannelActivity.this.getString(R.string.lastpage),  Toast.LENGTH_SHORT).show();
               return;
             }
             ChannelActivity localChannelActivity = ChannelActivity.this;
