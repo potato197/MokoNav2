@@ -10,7 +10,6 @@
         android:id="@+id/chosenButton"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/chosen_bg"
-        android:enabled="false"
         android:gravity="left|center"
         android:textColor="#ffffff"
         android:textSize="@dimen/abc_text_size_caption_material"
