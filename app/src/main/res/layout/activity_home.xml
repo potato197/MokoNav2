@@ -17,7 +17,7 @@
 
     <ViewFlipper
         android:layout_width="fill_parent"
-        android:layout_height="@android:dimen/notification_large_icon_height"
+        android:layout_height="175.0px"
         android:id="@+id/homeViewFlipper" >
 
         <LinearLayout
