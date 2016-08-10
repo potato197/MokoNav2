@@ -149,24 +149,24 @@ public class ChannelActivity
     {
       MokoGet2Api localMokoGet2Api = new MokoGet2Api();
       ChannelActivity.this.albums = null;
-      try
+     for(;;)
       {
-        if (ChannelActivity.this.id == 0)
+        try
         {
-          ChannelActivity.this.albums = localMokoGet2Api.getClassAblums(MokoApplication.channelsURL[0], ChannelActivity.this.page, "big");
+          if (ChannelActivity.this.id == 0)
+          {
+            ChannelActivity.this.albums = localMokoGet2Api.getClassAblums(MokoApplication.channelsURL[0], ChannelActivity.this.page, "big");
+          }
+          else {
+            ChannelActivity.this.albums = localMokoGet2Api.getClassAblums(MokoApplication.channelsURL[ChannelActivity.this.id], ChannelActivity.this.page, "small");
+          }
+          return ChannelActivity.this.albums;
         }
-        else {
-          ChannelActivity.this.albums = localMokoGet2Api.getClassAblums(MokoApplication.channelsURL[ChannelActivity.this.id], ChannelActivity.this.page, "small");
-        }
-        return ChannelActivity.this.albums;
-      }
-      catch (WSError localWSError)
-      {
-        for (;;)
+        catch (WSError localWSError)
         {
-          publishProgress(localWSError);
+            publishProgress(localWSError);
         }
-      }
+     }
     }
     
     public void onPostExecute(final ArrayList<Album> paramArrayList)
@@ -177,24 +177,22 @@ public class ChannelActivity
         GridImageAdapter localGridImageAdapter = new GridImageAdapter(ChannelActivity.this);
         localGridImageAdapter.setList(paramArrayList);
         ChannelActivity.this.gridView.setAdapter(localGridImageAdapter);
-        /*ChannelActivity.this.gridView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        ChannelActivity.this.gridView.setOnItemClickListener(new AdapterView.OnItemClickListener()
         {
           public void onItemClick(AdapterView<?> paramAnonymousAdapterView, View paramAnonymousView, int paramAnonymousInt, long paramAnonymousLong)
           {
             Intent localIntent = new Intent();
             localIntent.setClass(ChannelActivity.this, PhotoActivity.class);
             Bundle localBundle = new Bundle();
-            localBundle.putString("url", ((Album)paramArrayList.get(paramAnonymousInt)).getUrl());
+            localBundle.putString("url", paramArrayList.get(paramAnonymousInt).getUrl());
             localIntent.putExtras(localBundle);
             ChannelActivity.this.startActivity(localIntent);
           }
-        });*/
+        });
       }
-      for (;;)
+      else
       {
-        super.onPostExecute(paramArrayList);
-        return;
-        /*ChannelActivity.this.mViewFlipper.setDisplayedChild(2);
+        ChannelActivity.this.mViewFlipper.setDisplayedChild(2);
         ChannelActivity.this.mFailureBar.setOnRetryListener(new View.OnClickListener()
         {
           public void onClick(View paramAnonymousView)
@@ -202,8 +200,9 @@ public class ChannelActivity
             new ChannelActivity.NewsTask().execute(new Void[] { null });
           }
         });
-        ChannelActivity.this.mFailureBar.setText(R.string.connection_fail);*/
+        ChannelActivity.this.mFailureBar.setText(R.string.connection_fail);
       }
+      super.onPostExecute(paramArrayList);
     }
     
     public void onPreExecute()
@@ -215,7 +214,7 @@ public class ChannelActivity
     
     protected void onProgressUpdate(WSError... paramVarArgs)
     {
-      Toast.makeText(ChannelActivity.this, paramVarArgs[0].getMessage(), 1).show();
+      Toast.makeText(ChannelActivity.this, paramVarArgs[0].getMessage(),Toast.LENGTH_SHORT).show();
       super.onProgressUpdate(paramVarArgs);
     }
   }

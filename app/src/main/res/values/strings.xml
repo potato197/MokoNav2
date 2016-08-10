@@ -19,4 +19,19 @@
     <string name="firstpage">First page</string>
     <string name="lastpage">Last page</string>
     <string name="site">Site</string>
+    <string name="wifinote">"No WLAN.
+Caution：continue will lead to large data traffic."</string>
+    <string name="goon">Continue</string>
+    <string name="quit">Quit</string>
+    <string name="savepic">Save to disk</string>
+    <string name="savesuccess">Save file succeed！</string>
+    <string name="savefailed">Save file failed！</string>
+    <string name="setbackgroud">Set as wallpaper</string>
+    <string name="setsuccess">Set succeed!</string>
+    <string name="setfailed">Set failed！</string>
+    <string name="prephoto">Previous</string>
+    <string name="menusave">Save</string>
+    <string name="menuwallpaper">Wallpaper</string>
+    <string name="nextphoto">Next</string>
+    <string name="app_folder">mokocc</string>
 </resources>

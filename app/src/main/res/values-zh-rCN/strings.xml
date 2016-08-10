@@ -20,4 +20,19 @@
     <string name="firstpage">首页</string>
     <string name="lastpage">末页</string>
     <string name="site">个人网站</string>
+    <string name="wifinote">"没有可用的WLAN网络。
+注意：如果继续使用，可能消耗较多流量。"</string>
+    <string name="goon">继续</string>
+    <string name="quit">退出</string>
+    <string name="savepic">保存到本地</string>
+    <string name="savesuccess">保存文件成功！</string>
+    <string name="savefailed">无法保存文件！</string>
+    <string name="setbackgroud">设为墙纸</string>
+    <string name="setsuccess">设置墙纸成功！</string>
+    <string name="setfailed">无法设置墙纸！</string>
+    <string name="prephoto">上一张</string>
+    <string name="menusave">保存</string>
+    <string name="menuwallpaper">墙纸</string>
+    <string name="nextphoto">下一张</string>
+    <string name="app_folder">mokocc</string>
 </resources>

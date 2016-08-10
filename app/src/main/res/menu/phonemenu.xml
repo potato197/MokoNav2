@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:icon="@drawable/download" android:id="@+id/savemenu" android:title="@string/menusave" />
+    <item android:icon="@drawable/monitor" android:id="@+id/wallpapermenu" android:title="@string/menuwallpaper" />
+    <item android:icon="@drawable/left" android:id="@+id/premenu" android:title="@string/prephoto" />
+    <item android:icon="@drawable/right" android:id="@+id/nextmenu" android:title="@string/nextphoto" />
+</menu>

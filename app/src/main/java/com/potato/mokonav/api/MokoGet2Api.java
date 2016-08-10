@@ -115,18 +115,23 @@ public class MokoGet2Api
   public ArrayList<String> getPhotos(String paramString)
     throws WSError
   {
-    String str1 = Caller.doGet(MokoApplication.login + paramString);
+   // String str1 = Caller.doGet(MokoApplication.login + paramString);
+    String str1 = Caller.doGet(paramString);
     ArrayList localArrayList = new ArrayList();
-    Matcher localMatcher = Pattern.compile("http://img.*?.jpg", Pattern.DOTALL).matcher(str1);
+    Matcher localMatcher = Pattern.compile(" src2=\"http://img[a-zA-Z_0-9]*.*?.jpg", Pattern.DOTALL).matcher(str1);
     for (;;)
     {
       if (!localMatcher.find()) {
         return localArrayList;
       }
+
       String str2 = localMatcher.group();
-      if ((str2.contains("src")) && (str2.contains("post"))) {
-        localArrayList.add(str2);
+      Matcher localMatcher2 = Pattern.compile("http://img[a-zA-Z_0-9]*.*?.jpg", Pattern.DOTALL).matcher(str2);
+      if (!localMatcher2.find()) {
+        return localArrayList;
       }
+      String str3 = localMatcher2.group();
+      localArrayList.add(str3);
     }
   }
   
