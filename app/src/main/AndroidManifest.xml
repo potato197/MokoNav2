@@ -20,6 +20,7 @@
         </activity>
         <activity android:name=".activity.ChannelActivity"> </activity>
         <activity android:name=".activity.PhotoActivity"> </activity>
+        <activity android:name=".activity.SiteActivity"> </activity>
     </application>
 
 </manifest>

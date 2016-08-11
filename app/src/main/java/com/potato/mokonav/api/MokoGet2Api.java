@@ -38,38 +38,32 @@ public class MokoGet2Api
   {
     Artist localArtist = new Artist();
     String str1 = Caller.doGet(paramString);
-    Matcher localMatcher1 = Pattern.compile("http://img.*?.jpg", Pattern.DOTALL).matcher(str1);
-    Matcher localMatcher2 = Pattern.compile("<h1 class=\"name\">.*?</h1>", Pattern.DOTALL).matcher(str1);
-    Matcher localMatcher3 = Pattern.compile("<h2 class=\"duty\">.*?</h2>", Pattern.DOTALL).matcher(str1);
-
-    if (!localMatcher1.find())
+    //Matcher localMatcher1 = Pattern.compile("http://img.*?.jpg", Pattern.DOTALL).matcher(str1);
+    Matcher localLogoMatcher1 = Pattern.compile("<img id=\"imgUserLogo\" class=\"bd\" src=\"(http://img.*?.jpg)\"", Pattern.DOTALL).matcher(str1);
+    if(localLogoMatcher1.find())
     {
-      localMatcher2 = Pattern.compile("<h1 class=\"name\">.*?</h1>", Pattern.DOTALL).matcher(str1);
-      if (localMatcher2.find()) {
-        String[] arrayOfString = localMatcher2.group().replaceAll("\\n|\\t", "").replaceAll("<.*?>", " ").trim().split("  ");
-        localArtist.setName(arrayOfString[0]);
-        localArtist.setRank(arrayOfString[1]);
-      }
-      localMatcher3 = Pattern.compile("<h2 class=\"duty\">.*?</h2>", Pattern.DOTALL).matcher(str1);
-    }
-    for (;;)
-    {
-      if (!localMatcher3.find())
-      {
-        Matcher localMatcher4 = Pattern.compile("<a id=\"a_post\".*?</a>", Pattern.DOTALL).matcher(str1);
-        if (localMatcher4.find()) {
-          localArtist.setAblumsSum(Integer.parseInt(localMatcher4.group().substring(1 + localMatcher4.group().indexOf("("), localMatcher4.group().indexOf(")"))));
-        }
-        localArtist.setAblums(getAritstAlbums(str1));
-        return localArtist;
-      }
-      localArtist.setDuty(localMatcher3.group().replaceAll("\\n|\\t", "").replaceAll("<div.*?div>", "").replaceAll("<.*?>", " ").trim().split(" "));
-      String str2 = localMatcher1.group();
-      if (!str2.contains("des")) {
-        break;
-      }
+      String str2 = localLogoMatcher1.group(1);
       localArtist.setLogo(str2);
     }
+
+    Matcher localMatcher2 = Pattern.compile("<h1 class=\"name\">.*?</h1>", Pattern.DOTALL).matcher(str1);
+    if (localMatcher2.find()) {
+      String[] arrayOfString = localMatcher2.group().replaceAll("\\n|\\t", "").replaceAll("<.*?>", " ").trim().split("  ");
+      localArtist.setName(arrayOfString[0]);
+      localArtist.setRank(arrayOfString[1]);
+    }
+
+    Matcher localMatcher3 = Pattern.compile("<h2 class=\"duty\">.*?</h2>", Pattern.DOTALL).matcher(str1);
+    if (localMatcher3.find()) {
+      localArtist.setDuty(localMatcher3.group().replaceAll("\\n|\\t", "").replaceAll("<div.*?div>", "").replaceAll("<.*?>", " ").trim().split(" "));
+    }
+
+    Matcher localMatcher4 = Pattern.compile("<a id=\"a_post\".*?</a>", Pattern.DOTALL).matcher(str1);
+    if (localMatcher4.find()) {
+      localArtist.setAblumsSum(Integer.parseInt(localMatcher4.group().substring(1 + localMatcher4.group().indexOf("("), localMatcher4.group().indexOf(")"))));
+    }
+
+    localArtist.setAblums(getAritstAlbums(str1));
     return localArtist;
   }
   
@@ -138,9 +132,10 @@ public class MokoGet2Api
   public void updateAritstAlbums(String paramString, int paramInt, ArrayList<Album> paramArrayList)
     throws WSError
   {
-    if (paramInt != 1) {
+/*    if (paramInt != 1) {
       paramString = paramString.replace("1/postsortid.html", paramInt + "/postsortid.html");
-    }
+    }*/
+    paramString = paramString.replaceAll("\\d+\\.html",paramInt+".html");
     paramArrayList.addAll(getAritstAlbums(Caller.doGet(paramString)));
   }
 }

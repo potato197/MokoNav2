@@ -51,7 +51,23 @@ public class ChannelActivity
   
   public boolean onContextItemSelected(MenuItem paramMenuItem)
   {
-    return false;
+    AdapterView.AdapterContextMenuInfo localAdapterContextMenuInfo = (AdapterView.AdapterContextMenuInfo)paramMenuItem.getMenuInfo();
+    switch (paramMenuItem.getItemId())
+    {
+      case 0:
+        if (localAdapterContextMenuInfo == null) {
+          break;
+        }
+        String str = "http://www.moko.cc/post/" + this.albums.get(localAdapterContextMenuInfo.position).getAuthor() + "/new/1.html";
+        Intent localIntent = new Intent();
+        localIntent.setClass(this, SiteActivity.class);
+        Bundle localBundle = new Bundle();
+        localBundle.putString("url", str);
+        localIntent.putExtras(localBundle);
+        startActivity(localIntent);
+        break;
+    }
+    return super.onContextItemSelected(paramMenuItem);
   }
   
   public void onCreate(Bundle paramBundle)

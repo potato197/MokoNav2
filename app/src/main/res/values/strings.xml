@@ -34,4 +34,5 @@ Caution：continue will lead to large data traffic."</string>
     <string name="menuwallpaper">Wallpaper</string>
     <string name="nextphoto">Next</string>
     <string name="app_folder">mokocc</string>
+    <string name="post">Post</string>
 </resources>
