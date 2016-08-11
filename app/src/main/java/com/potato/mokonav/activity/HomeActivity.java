@@ -85,17 +85,17 @@ public class HomeActivity extends AppCompatActivity {
                         GalleryImageAdapter localGalleryImageAdapter = new GalleryImageAdapter(HomeActivity.this);
                         localGalleryImageAdapter.setImageUrls(localArrayList);
                         HomeActivity.this.mGallery.setAdapter(localGalleryImageAdapter);
-                        HomeActivity.this.mGallery.setSelection(1, true);/*
+                        HomeActivity.this.mGallery.setSelection(1, true);
                         HomeActivity.this.mGallery.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             public void onItemClick(AdapterView<?> paramAnonymousAdapterView, View paramAnonymousView, int paramAnonymousInt, long paramAnonymousLong) {
                             Intent localIntent = new Intent();
                             localIntent.setClass(HomeActivity.this, PhotoActivity.class);
                             Bundle localBundle = new Bundle();
-                            localBundle.putString("url", ((Album)paramArrayList.get(paramAnonymousInt)).getUrl());
+                            localBundle.putString("url", paramArrayList.get(paramAnonymousInt).getUrl());
                             localIntent.putExtras(localBundle);
                             HomeActivity.this.startActivity(localIntent);
                             }
-                        });*/
+                        });
                         super.onPostExecute(paramArrayList);
                         return;
                     }
